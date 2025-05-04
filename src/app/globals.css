@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red: #ec2a31;
+  --color-red-dark: #d1252a;
+  --color-gray-light: #d1d5db;
+  --color-gray-medium: #bfbfbf;
+  --color-gray-dark: #404040;
+  --color-body-bg: #f2f4f6;
+  --color-green: #008000;
+  --color-gray-main: #808080;
+  --color-btn-primary-bg: #ffb839;
+  --color-btn-primary-hover: #e69520;
+  --color-btn-primary-border: #bf8a2b;
+  --color-btn-primary-text: var(--color-black);
+
+  --color-btn-secondary-bg: #022643;
+  --color-btn-secondary-hover: #15324d;
+  --color-btn-secondary-border: #011c32;
+  --color-btn-secondary-text: var(--color-white);
+
+  --color-scrollbar-thumb: var(--color-red);
+  --color-scrollbar-thumb-hover: var(--color-red-dark);
+  --color-scrollbar-track-border: var(--color-gray-light);
+
+  --color-checkbox-border: var(--color-gray-medium);
+  --color-checkbox-bg: var(--color-white);
+
+  --color-label-text: var(--color-gray-dark);
+
+  --color-safe: var(--color-green);
+  --color-alert: var(--color-red);
+}
+
+@layer base {
+  .text-gray {
+    --tw-text-opacity: 1;
+    color: var(--color-gray-main);
+  }
+}
+
+@theme inline {
+  /*  переопределениe переменных Tailwind */
+  /* --color-background: var(--background); */
+  /* --color-foreground: var(--foreground); */
+  /* --font-sans: var(--font-geist-sans); */
+  /* --font-mono: var(--font-geist-mono); */
+}
+
+@media (prefers-color-scheme: dark) {
+  /* :root {
+    --color-body-bg: #0a0a0a;
+    --color-label-text: #ededed;
+    --color-btn-primary-text: #1a1a1a;
+    --color-btn-secondary-text: var(--color-white);
+  } */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: var(--color-body-bg);
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid var(--color-scrollbar-track-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-thumb-hover);
+}
+
+body::-ms-scrollbar {
+  width: 8px;
+}
+
+body::-ms-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+body::-ms-scrollbar-track {
+  background: transparent;
+}
+
+input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--color-checkbox-border);
+  border-radius: 8px;
+  background-color: var(--color-checkbox-bg);
+  accent-color: black;
+  cursor: pointer;
+}
+
+label input + span {
+  color: var(--color-label-text);
+}
+
+.button-main {
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid var(--color-btn-primary-border);
+}
+
+.button-main:hover {
+  background-color: var(--color-btn-primary-hover);
+}
+
+.button-secondary {
+  background-color: var(--color-btn-secondary-bg);
+  color: var(--color-btn-secondary-text);
+  border: 1px solid var(--color-btn-secondary-border);
+  padding: 16px 24px;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  width: 320px;
+}
+
+.button-secondary:hover {
+  background-color: var(--color-btn-secondary-hover);
+}
+
+.safe {
+  color: var(--color-safe);
+}
+
+.alert {
+  color: var(--color-alert);
+}
