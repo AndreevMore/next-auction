@@ -11,14 +11,14 @@ export const LotCard = ({ lot }: { lot: Lot }) => {
   const currentBid = useCurrentBid(lot.lot_id, lot.site);
 
   return (
-    <div className="flex w-full overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
-      <div className="h-[240px] w-[340px] shrink-0 overflow-hidden">
+    <div className="mb-3 flex w-full overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
+      <div className="max-w-[340px] overflow-hidden">
         <Image
-          src={lot.link_img_hd?.[0] || '/file.svg'}
+          src={lot.link_img_small?.[0] || '/file.svg'}
           alt={lot.title}
-          width={340}
           height={240}
-          className="object-cover"
+          width={340}
+          className="h-full min-h-[240px] w-full object-cover"
           priority={true}
         />
       </div>

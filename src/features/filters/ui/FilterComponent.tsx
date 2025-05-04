@@ -1,27 +1,7 @@
 import { DropMenuIcon } from '@/shared/ui/icons';
 import React from 'react';
+import { FilterProps } from '../model/types';
 
-type SimpleFilterType = 'site' | 'make' | 'model';
-interface FilterProps {
-  title: string;
-  type: SimpleFilterType;
-  // type: string;
-  data: string[];
-  isMulti: boolean;
-  isSearch: boolean;
-  onChange: (event: FilterChangeEvent) => void;
-}
-
-type FilterChangeEvent =
-  | { type: 'year'; selectedItems: { year_from: number; year_to: number } }
-  | { type: 'site'; selectedItems: string[] }
-  | { type: 'make'; selectedItems: string[] }
-  | { type: 'model'; selectedItems: string[] };
-
-// interface FilterChangeEvent {
-//   type: string;
-//   selectedItems: string[];
-// }
 export const FilterComponent: React.FC<FilterProps> = ({
   title,
   type,

@@ -13,14 +13,14 @@ export const InfoItem: React.FC<InfoItemProps> = ({
 }) => {
   const getBadgeClass = (type: 'green' | 'red') => {
     if (type === 'green') {
-      return 'text-green-700 border border-green-300 bg-green-50 px-1.5 py-0.4 rounded text-sm';
+      return 'text-green-700 border border-green-200 bg-green-100 px-1.5 py-0.4 rounded text-sm';
     }
-    return 'text-red-600 border border-red-300 bg-red-50 px-1.5 py-0.5 rounded text-sm';
+    return 'text-red-500 border border-red-200 bg-red-100 px-1.5 py-0.4 rounded text-sm';
   };
 
   return (
     <div className="flex h-full flex-col items-start gap-1">
-      <span className="text-gray text-sm">{label} TODO</span>
+      <span className="text-gray text-sm">{label}</span>
 
       {variant === 'badge-green' && <span className={getBadgeClass('green')}>{value}</span>}
       {variant === 'badge-red' && <span className={getBadgeClass('red')}>{value}</span>}
@@ -30,7 +30,7 @@ export const InfoItem: React.FC<InfoItemProps> = ({
           {badgeText && <span className={getBadgeClass('red')}>{badgeText}</span>}
         </div>
       )}
-      {variant === 'default' && <span className="text-[14px] break-all text-black">{value}</span>}
+      {variant === 'default' && <span className="break-all text-black">{value}</span>}
     </div>
   );
 };
