@@ -1,16 +1,8 @@
 export interface AuctionTimeInfo {
-  /** Локально отформатированная дата, например "Sat 03 May 15:56 GMT+3" */
   formattedDate: string;
-  /** Оставшееся время, например "2 d 5 h 12 min left" или "Expired" / "N/A" */
   timeLeft: string;
 }
 
-/**
- * Преобразует UTC-строку auctionDateStr в локальную дату и таймер до события.
- *
- * @param auctionDateStr — ISO-строка UTC (напр. "2025-05-03T13:56:00.000Z")
- * @returns {AuctionTimeInfo}
- */
 export function getAuctionTimeInfo(auctionDateStr?: string | null): AuctionTimeInfo {
   if (!auctionDateStr) {
     return { formattedDate: 'N/A', timeLeft: 'N/A' };
@@ -21,20 +13,18 @@ export function getAuctionTimeInfo(auctionDateStr?: string | null): AuctionTimeI
     return { formattedDate: 'N/A', timeLeft: 'N/A' };
   }
 
-  // 1) Форматируем локальную дату с коротким названием зоны (GMT+X)
   const formattedDate = dateUtc
     .toLocaleString(undefined, {
-      weekday: 'short', // "Sat"
-      day: '2-digit', // "03"
-      month: 'short', // "May"
-      hour: '2-digit', // "15"
-      minute: '2-digit', // "56"
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
       hour12: false,
-      timeZoneName: 'short', // "GMT+3"
+      timeZoneName: 'short',
     })
-    .replace(',', ''); // убираем запятую после day
+    .replace(',', '');
 
-  // 2) Считаем таймер: разница между аукционом и «сейчас»
   const now = new Date();
   const diffMs = dateUtc.getTime() - now.getTime();
 

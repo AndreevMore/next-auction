@@ -1,11 +1,12 @@
 import { DropMenuIcon } from '@/shared/ui/icons';
+import { getYearRange } from '@/shared/utils/getYearRange';
 import React, { useState } from 'react';
-
-const years = Array.from({ length: 2025 - 1900 + 1 }, (_, i) => 1900 + i);
 
 interface YearRangeFilterProps {
   onChange: (from: number, to: number) => void;
 }
+
+const years = getYearRange();
 
 export const RangeFilter: React.FC<YearRangeFilterProps> = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);

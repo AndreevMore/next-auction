@@ -1,12 +1,4 @@
 'use client';
-// import { useFilterStore } from '@/features/filters/model/filter.store';
-// import { RangeFilter } from '@/features/filters/ui/RangeFilter';
-// import { FilterComponent } from '@/features/filters/ui/FilterComponent';
-// import { LotList } from '@/widgets/lot-list/ui/LotList';
-// import { useEffect } from 'react';
-// import { useLotsStore } from '@/features/lots/model/lots.store';
-// import { useMakesStore } from '@/features/makes/model/makes.store';
-// import { FilterChangeEvent } from '@/features/filters/model/types';
 import React from 'react';
 import { FilterComponent } from '@/features/filters/ui/FilterComponent';
 import { RangeFilter } from '@/features/filters/ui/RangeFilter';
@@ -26,7 +18,6 @@ export default function Home() {
         <div className="filters w-full space-y-4">
           <FilterComponent
             title="Auction Type"
-            // value={} TODO
             type="site"
             data={['Copart', 'IAAI']}
             isMulti={true}
@@ -34,7 +25,6 @@ export default function Home() {
             onChange={handleFilterChange}
           />
           <RangeFilter
-            // value={[2015, 2025]}  TODO
             onChange={(from, to) =>
               handleFilterChange({
                 type: 'year',
@@ -43,7 +33,6 @@ export default function Home() {
             }
           />
           <FilterComponent
-            // value={}  TODO
             title="Brand"
             type="make"
             data={makeOptions}
@@ -53,7 +42,6 @@ export default function Home() {
           />
           {singleMake && (
             <FilterComponent
-              // value={}  TODO
               title="Model"
               type="model"
               data={modelOptions}

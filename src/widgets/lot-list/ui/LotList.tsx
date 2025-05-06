@@ -1,8 +1,6 @@
 'use client';
-
 import React from 'react';
 import { LotCard } from '@/entities/lot/ui/LotCard';
-// import { useVirtualizedLots } from '@/features/lots/model/useVirtualizedLots';
 import { useFilteredLots } from '@/features/lots/model/useFilteredLots';
 
 export const LotList = () => {
